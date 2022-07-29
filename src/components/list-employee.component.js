@@ -7,13 +7,26 @@ const ListEmployeeComponent = () => {
 
 
     useEffect(() => {
+        getAllEmployees()
+    }, []);
+
+    const getAllEmployees = () => {
         EmployeeService.getAllEmployees().then(response => {
             setEmployees(response.data);
             console.log(response.data);
         }).catch(error => {
             console.log(error);
         })
-    }, []);
+    }
+
+    const deleteEmployee = (employeeId) => {
+        EmployeeService.deleteEmployee(employeeId).then(response => {
+            console.log(response.data);
+            getAllEmployees()
+        }).catch(error => {
+            console.log(error);
+        })
+    }
 
 
     return (
@@ -39,6 +52,7 @@ const ListEmployeeComponent = () => {
                         <td>{employee.emailId}</td>
                         <td>
                             <Link to={`/edit-employee/${employee.id}`} className="btn btn-primary">Edit</Link>
+                            <button className="btn btn-danger" style={{marginLeft:"10px"}} onClick={()=>{deleteEmployee(employee.id)}}>Delete</button>
                         </td>
                     </tr>
                 ))}
