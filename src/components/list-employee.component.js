@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 const ListEmployeeComponent = () => {
     const [employees, setEmployees] = useState([]);
 
+
     useEffect(() => {
         EmployeeService.getAllEmployees().then(response => {
             setEmployees(response.data);
@@ -26,6 +27,7 @@ const ListEmployeeComponent = () => {
                         <th>Employee First Name</th>
                         <th>Employee Last Name</th>
                         <th>Employee Email</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +37,9 @@ const ListEmployeeComponent = () => {
                         <td>{employee.firstName}</td>
                         <td>{employee.lastName}</td>
                         <td>{employee.emailId}</td>
+                        <td>
+                            <Link to={`/edit-employee/${employee.id}`} className="btn btn-primary">Edit</Link>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
