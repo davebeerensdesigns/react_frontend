@@ -10,7 +10,7 @@ function App() {
         <div>
             <BrowserRouter>
                 <HeaderComponent/>
-                <div className="container">
+                <div className="container p-5">
                     <Routes>
                         <Route path="/" exact element={<ListEmployeeComponent />}/>
                         <Route path="/employees" element={<ListEmployeeComponent />}/>

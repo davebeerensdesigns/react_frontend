@@ -17,9 +17,9 @@ const ListEmployeeComponent = () => {
 
     return (
         <div className="container">
-            <h2 className="text-center">List Employees</h2>
+            <h2 className="text-center mb-3">List Employees</h2>
             <Link to="/add-employee" className="btn btn-primary">Add Employee</Link>
-            <table className="table table-bordered table-striped">
+            <table className="table table-bordered table-striped mt-3">
                 <thead>
                     <tr>
                         <th>Employee Id</th>
